@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: farm-direct
+    runtime: node
+    buildCommand: npm --prefix frontend ci && npm --prefix frontend run build && npm --prefix backend ci
+    startCommand: node backend/src/server.js
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
